@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@600&display=swap');
+
 /* RESET */
 * {
     margin: 0;
@@ -254,7 +256,7 @@ p {
 }
 
 .card-green {
-    background-color: #64D2A4;
+    background-color: #5CCAA0;
     --text: #000;
     --btn-bg: rgba(0, 0, 0, 0.1);
 }
@@ -267,13 +269,13 @@ p {
 }
 
 .card-purple {
-    background-color: #C1A3F9;
+    background-color: #B79AF2;
     --text: #000;
     --btn-bg: rgba(0, 0, 0, 0.1);
 }
 
 .card-yellow {
-    background-color: #F7F994;
+    background-color: #ECEE8C;
     --text: #000;
     --btn-bg: rgba(0, 0, 0, 0.1);
 }
@@ -302,9 +304,14 @@ p {
 
 .card p {
     font-family: 'Arial', sans-serif;
+    color: rgba(0, 0, 0, 0.65);
     font-size: 0.8rem;
     line-height: 1.4;
     opacity: 0.8;
+}
+
+.card-black p {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* --- Footer & Stat --- */
@@ -313,11 +320,11 @@ p {
     justify-content: space-between;
     align-items: flex-end;
     padding-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .card-black .card-footer {
-    border-top-color: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .stat-label {
@@ -503,36 +510,29 @@ p {
         max-width: 320px;
     }
 }
-
 /* end */
 
 /* temukan gaya belajar kamu */
 .st-container {
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px;
+    background-color: #fff;
 }
 
 .section-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 36px;
     font-weight: 900;
-    color: black; 
+    color: black;
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: -1px;
 }
 
-.section-title span {
-    font-family: 'Montserrat', sans-serif;
-    color: #ff85b2;
-    display: inline-block;
-    border-bottom: 4px solid #ff85b2;
-}
-
 .discovery-header {
     text-align: center;
-    margin-bottom: 50px; 
+    margin-bottom: 50px;
 }
 
 .st-card-wrapper {
@@ -546,8 +546,8 @@ p {
 
 /* Base Card Style */
 .st-main-card {
-    flex: 1; 
-    min-width: 300px; 
+    flex: 1;
+    min-width: 300px;
     max-width: 380px;
     padding: 42px;
     border-radius: 35px;
@@ -649,11 +649,12 @@ p {
     align-items: center;
     font-size: 10px;
 }
+
 /* end */
 
 /* cara kerja ai model flow */
 .how-it-works {
-    padding: 120px 10%;
+    padding: 100px 10%;
     background-color: #fff;
 }
 
@@ -684,6 +685,23 @@ p {
 
 .flow-step:hover .step-num {
     color: #000;
+    transform: translateX(10px);
+}
+
+.step-green {
+    --step-color: #2FAF8F;
+}
+
+.step-purple {
+    --step-color: #7C6DE6;
+}
+
+.step-yellow {
+    --step-color: #E6C84F;
+}
+
+.flow-step:hover .step-num {
+    color: var(--step-color);
     transform: translateX(10px);
 }
 
@@ -744,109 +762,118 @@ p {
         font-size: 3.5rem;
     }
 }
+
 /* end */
 
 /* team anggota */
-.team {
-    padding: 100px 8%;
+.header-section {
+    text-align: center; 
+    padding: 20px 20px;
+    background-color: #fff;
+    width: 100%;  
+    margin: 0 auto;   
+}
+
+.header-section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;         
+    font-size: 2.4rem;         
+    text-transform: uppercase; 
+    color: #111;               
+    line-height: 1;         
+    letter-spacing: -2px;   
+}
+
+.header-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;       
+    font-size: 1.2rem;
+    color: #666;              
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;            
+}
+
+.team-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 80px;
     background-color: #fff;
 }
 
-.team-grid {
-    display: grid;
-    /* Membuat 4 kolom yang sama rata */
-    grid-template-columns: repeat(4, 1fr);
-    /* Jarak antar foto yang tipis namun tegas */
-    gap: 15px;
-    margin-top: 50px;
-}
-
-.member-card {
+.bonito-card {
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
     position: relative;
     overflow: hidden;
-    /* Rasio 4:5 memberikan kesan tinggi dan elegan seperti majalah fashion */
-    aspect-ratio: 4/5;
-    background-color: #f0f0f0;
 }
 
-.member-card img {
+/* Hover Effect: Card akan berubah warna sesuai aksen */
+.bonito-card:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    background-color: var(--accent); /* Warna dari style inline HTML */
+    box-shadow: 0 15px 0 #000;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+}
+
+.card-img {
+    width: 100%; 
+    height: 200px; 
+    overflow: hidden; 
+    border-radius: 20px;
+    border: 2px solid #000;
+}
+
+.card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Foto akan terpotong rapi memenuhi kotak */
-    filter: grayscale(100%);
-    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
+    filter: grayscale(1); 
+    transition: 0.3s;
 }
 
-/* Overlay Interaktif */
-.member-overlay {
-    position: absolute;
-    inset: 0;
-    /* Mengisi seluruh area kartu */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    /* Teks muncul dari bawah */
-    padding: 30px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+.bonito-card:hover .card-img img {
+    filter: grayscale(0);
+    transform: scale(1.1);
 }
 
-.member-info h3 {
-    font-family: 'Playfair Display', serif;
-    color: #fff;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    transform: translateY(20px);
-    transition: transform 0.5s ease;
-}
-
-.specialty {
+.card-bottom h3 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    color: #aaa;
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transform: translateY(20px);
-    transition: transform 0.5s ease 0.1s;
-    /* Delay sedikit agar halus */
+    font-size: 1.4rem; 
+    line-height: 1;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
-/* Hover Effects */
-.member-card:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
+.card-bottom p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    opacity: 0.7;
 }
 
-.member-card:hover .member-overlay {
-    opacity: 1;
+/* Responsif */
+@media (max-width: 1024px) {
+    .team-grid-modern { grid-template-columns: repeat(2, 1fr); }
 }
-
-.member-card:hover .member-info h3,
-.member-card:hover .specialty {
-    transform: translateY(0);
-}
-
-/* Responsive Setting */
-@media (max-width: 1100px) {
-    .team-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* 3 kolom di tablet besar */
-}
-
-@media (max-width: 768px) {
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* 2 kolom di tablet/HP */
-    .team {
-        padding: 60px 5%;
-    }
+@media (max-width: 600px) {
+    .team-grid-modern { grid-template-columns: 1fr; }
 }
 /* end */
 
@@ -959,4 +986,5 @@ p {
         letter-spacing: 5px;
     }
 }
+
 /* end */

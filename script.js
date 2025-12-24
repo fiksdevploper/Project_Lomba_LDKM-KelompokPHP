@@ -90,3 +90,5 @@ items.forEach(item => {
         item.classList.toggle("active");
     });
 });
+
+// interactive image
