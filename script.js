@@ -1,14 +1,31 @@
 // navbar
 const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+const navMenu = document.getElementById('navMenu');
+const navbar = document.querySelector('.navbar');
+
 hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
 });
 // end
 
 // fade in herro
 document.addEventListener('DOMContentLoaded', () => {
-    // Animasi judul saat halaman dimuat
     const title = document.querySelector('.fade-in');
     setTimeout(() => {
         title.classList.add('appear');
@@ -26,11 +43,8 @@ setInterval(() => {
     wordElement.classList.remove("fade-in");
 
     setTimeout(() => {
-        // ganti kata
         index = (index + 1) % words.length;
         wordElement.textContent = words[index];
-
-        // fade in
         wordElement.classList.remove("fade-out");
         wordElement.classList.add("fade-in");
     }, 400);
