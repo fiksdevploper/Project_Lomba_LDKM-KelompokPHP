@@ -35,8 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // kata rotasi
 const words = ["personal", "efektif", "menyenangkan"];
+const colors = ["#5CCAA0", "#ECEE8C", "#B79AF2"]; // warna masing-masing kata
+
 let index = 0;
 const wordElement = document.getElementById("word-rotate");
+
 setInterval(() => {
     // fade out
     wordElement.classList.add("fade-out");
@@ -45,10 +48,10 @@ setInterval(() => {
     setTimeout(() => {
         index = (index + 1) % words.length;
         wordElement.textContent = words[index];
+        wordElement.style.backgroundColor = colors[index]; // ganti warna sesuai kata
         wordElement.classList.remove("fade-out");
         wordElement.classList.add("fade-in");
     }, 400);
-
 }, 2500);
 // end
 
@@ -65,29 +68,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 const target = +counter.getAttribute('data-target');
                 const duration = 2000; // Total durasi animasi (2 detik)
                 const startTime = performance.now();
-
                 const updateNumber = (currentTime) => {
                     const elapsedTime = currentTime - startTime;
                     const progress = Math.min(elapsedTime / duration, 1);
-
                     // Menggunakan easing 'outQuad' agar melambat di akhir (lebih halus)
                     const currentCount = Math.floor(progress * target);
-
                     counter.innerText = currentCount;
-
                     if (progress < 1) {
                         requestAnimationFrame(updateNumber);
                     } else {
                         counter.innerText = target;
                     }
                 };
-
                 requestAnimationFrame(updateNumber);
                 observer.unobserve(counter); // Berhenti memantau setelah animasi selesai
             }
         });
     }, observerOptions);
-
     // Daftarkan semua elemen .counter ke observer
     document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 });
@@ -98,7 +95,6 @@ const items = document.querySelectorAll(".accordion-item");
 
 items.forEach(item => {
     const header = item.querySelector(".accordion-header");
-
     header.addEventListener("click", () => {
         items.forEach(i => i.classList.remove("active"));
         item.classList.toggle("active");

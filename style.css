@@ -13,8 +13,26 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 14px;
+    /* konsisten kanan kiri */
+}
 
 /* NAVBAR */
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -28,14 +46,13 @@ body {
 
 .navbar.scrolled {
     background: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid #eeeeee;
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 16px 20px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -62,10 +79,9 @@ body {
     position: relative;
     text-decoration: none;
     color: #222;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
     white-space: nowrap;
 }
 
@@ -76,9 +92,7 @@ body {
     bottom: -6px;
     width: 100%;
     height: 2px;
-
     background: currentColor;
-
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
@@ -103,7 +117,6 @@ body {
     border: none;
     cursor: pointer;
     z-index: 1001;
-
     flex-direction: column;
     gap: 6px;
 }
@@ -129,7 +142,63 @@ body {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* dropdown */
+.dropdown {
+    position: relative;
+}
 
+.dropdown-content {
+    display: none;
+    /* Sembunyi default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    list-style: none;
+    z-index: 999;
+}
+
+.dropdown-content li a {
+    padding: 10px 20px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+
+/* Hover Effect Desktop */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li a:hover {
+    background-color: #f5f5f5;
+    color: black;
+}
+
+.dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- STYLING MOBILE (Layar di bawah 768px) --- */
+@media screen and (max-width: 768px) {
+    .desktop-only-dropdown {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+}
+
+/* resvonsive navbar */
 @media (max-width: 1000px) {
     .hamburger {
         display: flex;
@@ -139,20 +208,21 @@ body {
         position: fixed;
         inset: 0;
         background: #fff;
-
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 32px;
-
-        /* STATE AWAL AMAN */
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
         transform: translateX(100%);
         transition: 0.35s ease;
-
         z-index: 999;
+    }
+
+    .nav-cta {
+        background: none;
+        color: black !important;
     }
 
     .nav-menu.active {
@@ -177,21 +247,23 @@ body {
     align-items: center;
     text-align: center;
     padding: 100px 20px;
+    margin-top: 40px;
     box-sizing: border-box;
-
     margin-bottom: 100px;
+    scroll-margin-top: 40px;
 }
 
 h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
     font-size: 4rem;
     line-height: 1.1;
     margin-bottom: 20px;
 }
 
 h1 span {
-    font-style: italic;
-    font-weight: 100;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
 }
 
 p {
@@ -273,7 +345,6 @@ p {
         padding: 80px 20px;
     }
 }
-
 /* herro end */
 
 /* start tag masalah pendidikan */
@@ -290,6 +361,7 @@ p {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    scroll-margin-top: 10px;
 }
 
 .section-header {
@@ -322,10 +394,14 @@ p {
     min-height: 280px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* Ubah bagian ini */
+    justify-content: flex-start;
+    gap: 12px;
+    /* Memberikan jarak otomatis antar elemen di dalamnya */
     transition: var(--transition);
     cursor: pointer;
     border: none;
+    color: var(--text);
 }
 
 .card-green {
@@ -373,6 +449,8 @@ p {
     font-weight: 800;
     margin-bottom: 8px;
     line-height: 1.2;
+    text-align: left;
+    padding-left: 0;
 }
 
 .card p {
@@ -381,6 +459,9 @@ p {
     font-size: 0.8rem;
     line-height: 1.4;
     opacity: 0.8;
+    margin: 0;
+    text-align: left;
+    opacity: 1;
 }
 
 .card-black p {
@@ -394,6 +475,7 @@ p {
     align-items: flex-end;
     padding-top: 15px;
     border-top: 1px solid rgba(0, 0, 0, 0.15);
+    margin-top: auto;
 }
 
 .card-black .card-footer {
@@ -428,24 +510,32 @@ p {
     transition: var(--transition);
 }
 
-/* --- Hover Effects --- */
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
+/* --- Hover Effects Modern --- */
 .card:hover .arrow-btn {
-    transform: translateX(3px);
+    transform: translateX(8px) scale(1.1);
 }
 
 /* Responsif */
 @media (max-width: 600px) {
+    .section-header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 0;
+        margin-bottom: 15px;
+        line-height: 1.1;
+    }
+
     .grid-cards {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     .card {
-        min-height: 250px;
+        min-height: 220px;
+        padding: 20px;
+    }
+
+    .challenges {
+        padding: 50px 5%;
     }
 }
 
@@ -583,15 +673,15 @@ p {
         max-width: 320px;
     }
 }
-
 /* end */
 
 /* temukan gaya belajar kamu */
 .st-container {
     width: 100%;
     margin: 0 auto;
-    padding: 40px;
+    padding: 40px 24px;
     background-color: #fff;
+    scroll-margin-top: 50px;
 }
 
 .section-title {
@@ -634,15 +724,15 @@ p {
 
 /* Varian Warna */
 .st-bg-pink {
-    background-color: #ff85b2;
+    background-color: #5CCAA0;
 }
 
 .st-bg-blue {
-    background-color: #85d7ff;
+    background-color: #B79AF2;
 }
 
 .st-bg-orange {
-    background-color: #ff8e6e;
+    background-color: #ECEE8C;
 }
 
 /* Header & Ilustrasi */
@@ -679,7 +769,9 @@ p {
 .st-title-text {
     margin: 0 0 15px 0;
     font-size: 22px;
-    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    /* semi-bold */
     line-height: 1.2;
     color: #000;
 }
@@ -728,15 +820,17 @@ p {
 
 /* cara kerja ai model flow */
 .how-it-works {
-    padding: 100px 10%;
+    padding: 80px;
     background-color: #fff;
 }
 
 .flow-container {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-top: 80px;
     position: relative;
 }
 
@@ -780,7 +874,8 @@ p {
 }
 
 .step-content h3 {
-    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
     color: #000;
     position: relative;
@@ -816,6 +911,10 @@ p {
 
 /* --- RESPONSIVE FLOW --- */
 @media (max-width: 992px) {
+    .how-it-works {
+        padding: 80px 24px;
+    }
+
     .flow-container {
         flex-direction: column;
         gap: 50px;
@@ -839,10 +938,99 @@ p {
 
 /* end */
 
+/* achivement */
+.achievements {
+    background-color: #fff;
+    text-align: center;
+    padding: 80px 24px;
+}
+
+.achievements h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+}
+
+.achievements p {
+    color: #666;
+    margin-bottom: 60px;
+}
+
+/* grid layout */
+.badge-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* badge card */
+.badge {
+    border-radius: 22px;
+    padding: 26px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* warna beda dikit tiap badge */
+.badge.bronze {
+    background: linear-gradient(135deg, #FFE6C7, #FFD4A3);
+}
+
+.badge.silver {
+    background: linear-gradient(135deg, #EAF3FF, #D6E8FF);
+}
+
+.badge.gold {
+    background: linear-gradient(135deg, #FFF4C2, #FFE08A);
+}
+
+.badge.master {
+    background: linear-gradient(135deg, #F6E8FF, #E6CCFF);
+}
+
+.badge img {
+    width: 90px;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+.badge span {
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* hover effect */
+.badge:hover {
+    transform: translateY(-6px) scale(1.03);
+}
+
+.badge:hover img {
+    transform: rotate(-6deg) scale(1.1);
+}
+
+/* locked badge */
+.badge.locked {
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.badge.locked:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* achivement end */
+
 /* team anggota */
 .header-section {
     text-align: center;
-    padding: 20px 20px;
+    padding: 80px;
     background-color: #fff;
     width: 100%;
     margin: 0 auto;
@@ -859,7 +1047,7 @@ p {
 }
 
 .header-section p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'arial', sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
     color: #666;
@@ -960,6 +1148,7 @@ p {
 
 /* Responsif */
 @media (max-width: 1024px) {
+
     .team-grid-modern {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -974,9 +1163,10 @@ p {
 /* end */
 
 /* footer */
+/* footer */
 .main-footer {
-    background-color: #000;
-    color: #fff;
+    background-color: #f8fafc;
+    color: #0f172a;
     padding: 100px 5% 40px;
     display: flex;
     justify-content: center;
@@ -991,95 +1181,88 @@ p {
 /* Branding */
 .footer-brand {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 2.5rem;
-    letter-spacing: 10px;
-    /* Spasi lebar membuat kesan mahal */
-    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 2.2rem;
+    letter-spacing: 7px;
+    margin-bottom: 12px;
+    color: #0f172a;
 }
 
 .footer-line {
-    width: 50px;
+    width: 44px;
     height: 2px;
-    background-color: #fff;
-    margin: 20px auto;
+    background-color: #6366f1;
+    /* accent */
+    margin: 22px auto;
 }
 
 .footer-subtitle {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: #666;
-    font-size: 1.1rem;
-    margin-bottom: 80px;
+    font-family: Inter, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #475569;
+    letter-spacing: 0.2px;
+    margin-bottom: 64px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Members Grid - Teknik 4 Kolom yang Presisi */
+/* Members Grid */
 .members-layout {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* 4 kolom desktop */
-    gap: 30px;
-    margin-bottom: 80px;
+    gap: 36px;
+    margin-bottom: 72px;
 }
 
 .member-box {
     text-align: left;
-    border-left: 1px solid #222;
-    /* Garis pembatas tipis */
-    padding-left: 20px;
-    transition: 0.3s;
+    border-left: 2px solid #e2e8f0;
+    padding-left: 18px;
+    transition: border-color 0.2s ease;
 }
 
 .member-box:hover {
-    border-left-color: #fff;
+    border-left-color: #6366f1;
 }
 
 .nim {
     display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 0.7rem;
-    color: #444;
-    letter-spacing: 2px;
-    margin-bottom: 5px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    font-size: 0.65rem;
+    color: #64748b;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
 }
 
 .name {
     display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    color: #ccc;
+    font-family: Inter, sans-serif;
+    font-size: 0.95rem;
+    color: #0f172a;
 }
 
 /* Bottom */
 .footer-bottom {
-    border-top: 1px solid #111;
-    padding-top: 40px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 32px;
 }
 
 .footer-bottom p {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 0.6rem;
-    letter-spacing: 3px;
-    color: #333;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    color: #64748b;
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-    .members-layout {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 600px) {
-    .members-layout {
-        grid-template-columns: 1fr;
-    }
-
     .footer-brand {
         font-size: 1.5rem;
-        letter-spacing: 5px;
+        letter-spacing: 4px;
     }
 }
 

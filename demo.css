@@ -2,7 +2,8 @@
 
 .team-grid-modern {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Tetap 4 kolom agar ringkas */
+    grid-template-columns: repeat(4, 1fr);
+    /* Tetap 4 kolom agar ringkas */
     gap: 15px;
     padding: 80px;
     background-color: #fcfcfc;
@@ -11,7 +12,8 @@
 .bonito-card {
     background: #ffffff;
     border: 2px solid #000;
-    border-radius: 30px; /* Ikuti style membulatmu */
+    border-radius: 30px;
+    /* Ikuti style membulatmu */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -25,7 +27,8 @@
 /* Hover Effect: Card akan berubah warna sesuai aksen */
 .bonito-card:hover {
     transform: translateY(-10px) rotate(-1deg);
-    background-color: var(--accent); /* Warna dari style inline HTML */
+    background-color: var(--accent);
+    /* Warna dari style inline HTML */
     box-shadow: 0 15px 0 #000;
 }
 
@@ -38,18 +41,24 @@
 }
 
 .card-img {
-    width: 100%; /* Atau sesuaikan dengan lebar card */
-    height: 200px; /* Tentukan tinggi kotak gambar */
-    overflow: hidden; /* Memastikan gambar tidak keluar dari border-radius */
-    border-radius: 20px; /* Sesuaikan dengan lengkungan di gambar */
-    border: 2px solid #000; /* Jika ingin ada garis pinggir hitam */
+    width: 100%;
+    /* Atau sesuaikan dengan lebar card */
+    height: 200px;
+    /* Tentukan tinggi kotak gambar */
+    overflow: hidden;
+    /* Memastikan gambar tidak keluar dari border-radius */
+    border-radius: 20px;
+    /* Sesuaikan dengan lengkungan di gambar */
+    border: 2px solid #000;
+    /* Jika ingin ada garis pinggir hitam */
 }
 
 .card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(1); /* Look Bonito */
+    filter: grayscale(1);
+    /* Look Bonito */
     transition: 0.3s;
 }
 
@@ -60,7 +69,8 @@
 
 .card-bottom h3 {
     font-family: 'Syne', sans-serif;
-    font-size: 1.4rem; /* Tipografi Besar khas Bonito */
+    font-size: 1.4rem;
+    /* Tipografi Besar khas Bonito */
     line-height: 1;
     margin-bottom: 5px;
 }
@@ -75,8 +85,246 @@
 
 /* Responsif */
 @media (max-width: 1024px) {
-    .team-grid-modern { grid-template-columns: repeat(2, 1fr); }
+    .team-grid-modern {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
+
 @media (max-width: 600px) {
-    .team-grid-modern { grid-template-columns: 1fr; }
+    .team-grid-modern {
+        grid-template-columns: 1fr;
+    }
+}
+
+.feature-section {
+    padding: 80px 20px;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.feature-container {
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    /* Jarak antara gambar dan teks */
+}
+
+/* Sisi Gambar */
+.feature-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.blue-box {
+    background: linear-gradient(135deg, #a5d8ff, #e7f5ff);
+    width: 100%;
+    max-width: 400px;
+    /* Kotak biru tidak akan lebih dari ini */
+    aspect-ratio: 1 / 1;
+    border-radius: 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* HP menempel ke bawah kotak */
+    overflow: visible;
+    /* Biarkan elemen UI melayang jika ada */
+}
+
+.phone-img {
+    width: 75%;
+    /* Ukuran HP relatif terhadap kotak biru */
+    max-width: 250px;
+    /* Batas maksimal ukuran HP agar tidak raksasa */
+    height: auto;
+    margin-bottom: -20px;
+    /* Sedikit overlap ke bawah agar dinamis */
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+}
+
+/* Sisi Teks */
+.feature-text {
+    flex: 1;
+}
+
+.step-number {
+    color: #228be6;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.feature-text h2 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    background-color: #228be6;
+    color: white;
+    padding: 0 8px;
+}
+
+.feature-text p {
+    color: #868e96;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid #dee2e6;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #495057;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: #f8f9fa;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+    .feature-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .blue-box {
+        max-width: 300px;
+    }
+}
+
+/* Container Utama */
+.teamSwiper {
+    padding: 40px 0;
+}
+
+.team-card-minimal {
+    position: relative;
+    border-radius: 40px;
+    /* Sangat bulat sesuai gambar */
+    overflow: hidden;
+    height: 400px;
+    background: #f0f0f0;
+}
+
+.team-card-minimal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: white;
+}
+
+.card-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.card-content p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 12px;
+}
+
+/* Tag kecil di bawah nama sesuai gambar kedua */
+.tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tags span {
+    font-size: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 15px;
+}
+
+/* Container Ikon */
+.social-hover {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+/* Gaya Dasar Ikon */
+.icon-pastel {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0.5);
+    /* Muncul dengan efek membesar */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Warna-Warna Pastel Berbeda */
+.icon-pastel.ig {
+    background-color: #FFD1DC;
+}
+
+/* Pastel Pink */
+.icon-pastel.tw {
+    background-color: #C1E1C1;
+}
+
+/* Pastel Mint */
+.icon-pastel.in {
+    background-color: #AEC6CF;
+}
+
+/* Pastel Blue */
+
+/* Efek Hover pada Card */
+.team-card-minimal:hover .icon-pastel {
+    opacity: 1;
+    transform: scale(1);
+}
+
+    .teamSwiper {
+        pointer-events: auto;
+    }
+
+/* Animasi Muncul Berurutan (Staggered) */
+.team-card-minimal:hover .icon-pastel:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.team-card-minimal:hover .icon-pastel:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.team-card-minimal:hover .icon-pastel:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+/* Efek saat Ikon diklik/disentuh */
+.icon-pastel:hover {
+    transform: scale(1.1) !important;
+    filter: brightness(0.9);
 }
