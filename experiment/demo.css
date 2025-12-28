@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    position: relative;
+    max-width: 1200px;
+}
+
+h1 {
+    font-weight: 700;
+    color: #4a3228;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.podcaster-grid {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto; /* Aktifkan scroll horizontal */
+    scroll-snap-type: x mandatory; /* Supaya berhenti pas di tengah kartu */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Sembunyikan scrollbar di Firefox */
+    align-items: flex-end;
+    height: 450px;
+}
+
+.podcaster-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    flex: 0 0 250px; 
+    scroll-snap-align: start;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px 0 20px;
+    height: 380px;
+    cursor: pointer;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s ease;
+    will-change: flex, transform; /* Mengoptimalkan render browser */
+    text-align: left;
+}
+
+.card-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Di atas latar belakang kartu, tapi di bawah karakter */
+    pointer-events: none; /* Supaya tidak mengganggu klik */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-decoration img {
+    width: 90%; /* Sesuaikan besar kecilnya dekorasi di sini */
+    height: 90%;
+    object-fit: contain;
+    opacity: 0.8; /* Opsional: agar tidak terlalu mencolok */
+    transition: transform 0.5s ease; /* Transisi halus */
+}
+
+/* KUNCI: Saat kartu aktif, lebarnya jadi 3x lipat */
+.card.active .card-decoration img {
+    transform: scale(1.2) rotate(5deg); /* Dekorasi ikut membesar & sedikit miring */
+}
+
+.card.active {
+    flex: 0 0 500px; /* Lebar kartu saat diklik */
+}
+
+.card > img:not(.card-decoration img) {
+    position: relative;
+    z-index: 2; /* Di atas dekorasi */
+    width: 100%;
+    height: 85%;
+    object-fit: contain;
+    object-position: bottom;
+    margin-top: auto;
+    transition: transform 0.5s ease;
+}
+
+.card.active > img:not(.card-decoration img) {
+    transform: scale(1.1); /* Karakter membesar sedikit */
+}
+
+.card img {
+    width: 100%;
+    height: 85%;
+    object-fit: contain;
+    object-position: bottom;
+    margin-top: auto;
+    /* Tambahkan transisi agar perubahan ukuran foto halus */
+    transition: transform 0.5s ease; 
+}
+
+.card.active img {
+    transform: scale(1.8); /* Perbesar sedikit saat aktif */
+}
+
+/* Warna */
+.orange { background-color: #ff8c4b; }
+.brown  { background-color: #5d3423; }
+.green  { background-color: #4eb073; }
+.yellow { background-color: #fbd45d; }
+
+
+/* Styling Teks */
+.info h2 {
+    color: white;
+    font-size: 1.2rem; /* Ukuran saat kecil */
+    line-height: 1.1;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+/* Saat aktif, teks h2 membesar */
+.card.active .info h2 {
+    font-size: 1.8rem;
+}
+
+.streams {
+    background-color: white;
+    color: #ff8c4b;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    opacity: 0; /* Sembunyikan saat kartu kecil */
+    transition: 0.3s;
+}
+
+/* Munculkan streams saat kartu aktif */
+.card.active .streams {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    /* Tambahkan ini agar body tidak memaksa konten ke tengah secara ekstrem di HP */
+    body {
+        display: block; /* Mengubah flex ke block agar scroll bekerja normal dari atas */
+        padding: 10px 0;
+        min-height: auto;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0;
+        overflow: hidden; /* Mencegah container merusak layout */
+    }
+
+    /* .podcaster-grid {
+        display: flex;
+        flex-direction: row; 
+        justify-content: flex-start; 
+        align-items: flex-end;
+        height: 420px;
+        padding: 0 20px; 
+        gap: 15px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    } */
+    .podcaster-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth; /* Membuat geseran scroll halus */
+        scroll-snap-type: x mandatory;
+        padding: 0 40px; /* Memberi ruang agar kartu tidak terlalu mepet */
+        justify-content: flex-start;
+    }
+
+    .card {
+        flex: 0 0 220px; /* Ukuran tetap kartu saat tidak aktif */
+        height: 350px;
+        scroll-snap-align: start;
+    }
+
+    .card.active {
+        flex: 0 0 85vw; /* Gunakan vw (viewport width) agar lebar kartu aktif pas dengan layar HP */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        padding-left: 20px;
+    }
+}

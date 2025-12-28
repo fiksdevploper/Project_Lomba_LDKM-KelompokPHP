@@ -59,7 +59,7 @@ html {
 }
 
 .logo {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 900;
     font-size: 1.4rem;
     letter-spacing: 2px;
@@ -265,6 +265,8 @@ h1 {
 
 h1 span {
     font-family: 'Clash Display', sans-serif;
+    padding: 4px;
+    border-radius: 2.5px;
     background-color: #5CCAA0;
     font-weight: 600;
 }
@@ -280,7 +282,6 @@ p {
 
 .word-rotate {
     display: inline-block;
-    font-style: italic;
     position: relative;
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
@@ -540,6 +541,30 @@ p {
     }
 }
 
+@media (min-width: 601px) and (max-width: 1080px) {
+    .challenges {
+        padding: 70px 6%;
+    }
+
+    .section-header h1 {
+        font-size: 2.4rem;
+    }
+
+    .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        max-width: 900px;
+    }
+
+    .card {
+        min-height: 260px;
+        padding: 22px;
+    }
+
+    .value {
+        font-size: 1.6rem;
+    }
+}
 /* masalah pendidikan end */
 
 /* solusi inovasi ai */
@@ -918,7 +943,7 @@ p {
     flex: 0.2;
     height: 2px;
     color: #d0d0d0;
-    background: #d0d0d0;  
+    background: #d0d0d0;
     margin-top: 40px;
     position: relative;
     transform: scaleX(0);
@@ -962,6 +987,7 @@ p {
         font-size: 3.5rem;
     }
 }
+
 /* end */
 
 /* achivement */
@@ -1072,222 +1098,225 @@ p {
         width: 70px;
     }
 }
+
 /* achivement end */
 
 /* team anggota */
-.carousel-full-width {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    overflow: hidden;
-    padding: 40px 0;
-}
-
-.carousel-wrapper {
-    width: 100%;
-}
-
-.carousel-mode {
-    display: flex;
-    gap: 24px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    
-    /* Rumus agar kartu pertama sejajar dengan konten tengah (1200px) */
-    padding-left: calc((100vw - 1200px) / 2 + 20px);
-    padding-right: 100px; /* Ruang agar kartu terakhir tidak kepotong mati */
-    
-    scrollbar-width: none; /* Firefox */
-}
-
-.carousel-mode::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-}
-
-.testimonial-grid.carousel-mode {
-    display: flex;
-    gap: 24px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory; 
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    padding-bottom: 10px;
-}
-
-.testimonial-grid.carousel-mode::-webkit-scrollbar {
-    display: none;
-}
-
-.testimonial-grid.carousel-mode .tm-card {
-    flex: 0 0 350px; 
-    scroll-snap-align: start; 
-}
-
-.carousel-controls {
-    display: flex;
-    gap: 12px;
-}
-
-.nav-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: 1px solid #1a1a1a;
-    background: white;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.nav-btn:hover {
-    background: #1a1a1a;
-    color: white;
-}
-
-.testimonial-section {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 20px;
-    font-family: 'Inter', sans-serif;
-    color: #1a1a1a;
-}
-
-/* --- Header Area --- */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.tm-tag {
-    display: inline-flex;
-    padding: 6px 14px;
-    border: 1px solid #e5e7eb;
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 16px;
-    background-color: #ffffff;
-}
-
-.header-left h1 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    line-height: 1.1;
-    font-weight: 700;
-}
-
-.header-right { max-width: 450px; }
-.header-right p { color: #6b7280; margin-bottom: 24px; }
-
-.btn-get-started {
-    padding: 12px 24px;
-    border-radius: 50px;
-    border: 1px solid #1a1a1a;
-    background: transparent;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-get-started:hover {
-    background: #1a1a1a;
-    color: #fff;
-}
-
-/* --- Grid Layout --- */
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-}
-
-/* --- Card Styling --- */
-.tm-card {
-    position: relative;
-    height: 480px;
-    border-radius: 32px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    transition: transform 0.4s ease;
-    cursor: pointer;
-}
-
-.tm-card img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    mix-blend-mode: luminosity;
-    opacity: 0.8;
-    transition: 0.5s ease;
-}
-
-/* Warna Background Card */
-.tm-bg-pink { background-color: #b38a8a; }
-.tm-bg-brown { background-color: #8c735b; }
-.tm-bg-green { background-color: #3d8c40; }
-
-/* --- Konten (Hidden by Default) --- */
-.card-content {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 30px;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    color: white;
-    z-index: 2;
-    opacity: 0; /* Sembunyi awal */
-    transform: translateY(20px);
-    transition: all 0.4s ease;
-    box-sizing: border-box;
-}
-
-/* --- Efek Hover --- */
-.tm-card:hover {
-    transform: translateY(-10px);
-}
-
-.tm-card:hover img {
-    transform: scale(1.05); /* Sedikit zoom saat hover */
-    mix-blend-mode: normal; /* Mengembalikan warna asli saat dihover (opsional) */
-    opacity: 1;
-}
-
-.tm-card:hover .card-content {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- Footer & Typography --- */
-.card-content p {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.footer-card {
+.header-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    padding-top: 15px;
+    margin-bottom: 15px;
 }
 
-.logo { font-weight: 800; font-size: 0.75rem; }
-.info strong { display: block; font-size: 0.9rem; }
-.info span { font-size: 0.75rem; opacity: 0.8; }
+.member {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin: 0;
+}
 
-/* Responsive */
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background: #ff8c4b;
+    transform: scale(1.1);
+}
+
+.anggota-kami {
+    background-color: #fff;
+    width: 100%;
+    scroll-margin-top: 100px;
+}
+
+.podcaster-cards-wrapper {
+    position: relative;
+    margin-right: calc(-1 * (100vw - 100%) / 2);
+}
+
+.podcaster-section {
+    padding: 40px 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.podcaster-grid {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    align-items: flex-end;
+    height: 450px;
+}
+
+.podcaster-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.card-anggota {
+    flex: 0 0 250px;
+    scroll-snap-align: start;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px 0 20px;
+    height: 380px;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+}
+
+.card-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-decoration img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: transform 0.6s ease;
+}
+
+.card.active .card-decoration img {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.card-anggota.active {
+    flex: 0 0 500px;
+}
+
+.card-anggota>img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 85%;
+    object-fit: contain;
+    object-position: bottom;
+    margin-top: auto;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Efek membal sedikit */
+}
+
+.card-anggota.active>img {
+    transform: scale(1.4);
+    z-index: 5;
+}
+
+.card-anggota img {
+    width: 100%;
+    height: 85%;
+    object-fit: contain;
+    object-position: bottom;
+    margin-top: auto;
+    /* Tambahkan transisi agar perubahan ukuran foto halus */
+    transition: transform 0.5s ease;
+}
+
+.card-anggota.active img {
+    transform: scale(1.8);
+}
+
+.info {
+    position: relative;
+    z-index: 10;
+}
+
+.info h2 {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.card-anggota.active .info h2 {
+    font-size: 1.8rem;
+}
+
+.streams {
+    background-color: white;
+    color: #ff8c4b;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    opacity: 0;
+    /* Sembunyikan saat kartu kecil */
+    transition: 0.3s;
+}
+
+.card-anggota.active .streams {
+    opacity: 1;
+}
+
 @media (max-width: 768px) {
-    .tm-card { height: 400px; }
+    .member {
+        font-size: 1.5rem; /* Perkecil ukuran font judul di mobile */
+        line-height: 1.2;
+    }
+
+    .header-wrapper {
+        margin-bottom: 10px; /* Jarak antara judul dan card dipersempit */
+        padding: 0 5px; /* Beri sedikit padding samping agar tidak menempel ke pinggir layar */
+    }
+
+    .nav-btn {
+        width: 35px; /* Perkecil ukuran tombol di mobile agar proporsional */
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    /* Fix tambahan agar grid tidak terlalu jauh dari header */
+    .podcaster-section {
+        padding: 20px 5%;
+    }
+
+    .podcaster-grid {
+        height: 350px;
+        padding-right: calc(50vw - 200px);
+    }
+
+    .card-anggota {
+        height: 300px;
+    }
+
+    .card-anggota.active {
+        flex: 0 0 400px;
+    }
 }
 /* team end */
 
@@ -1393,4 +1422,5 @@ p {
         letter-spacing: 4px;
     }
 }
+
 /* end */

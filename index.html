@@ -44,7 +44,7 @@
                 <li><a href="#gaya-belajar-kamu">Gaya Belajar Kamu</a></li>
                 <li class="mobile-only"><a href="#how-it-works">AI Flow</a></li>
                 <li class="mobile-only"><a href="#bedge">Badge</a></li>
-                <li><a href="#anggota-tim" class="nav-cta">Anggota Kami</a></li>
+                <li><a href="#kelompok-php" class="nav-cta">Anggota Kami</a></li>
             </ul>
 
             <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
@@ -630,77 +630,92 @@
     <!-- achivement end -->
 
     <!-- foto anggota -->
-    <section class="testimonial-section">
-        <div class="header-container">
-            <div class="header-left">
-                <span class="tm-tag">📈 Testimonials</span>
-                <h1>Trusted by Over 15k+<br>Satisfied Clients</h1>
-            </div>
-            <div class="header-right">
-                <p>Convertify has helped businesses across industries enhance their sales performance.</p>
-                <div class="carousel-controls">
-                    <button class="nav-btn prev">⟵</button>
-                    <button class="nav-btn next">⟶</button>
+    <section class="anggota-kami" id="kelompok-php">
+        <div class="podcaster-section">
+            <div class="header-wrapper">
+                <h1 class="member">Berikut Anggota <br>Kelompok PHP</h1>
+                <div class="nav-buttons">
+                    <button class="nav-btn prev" onclick="scrollGrid(-1)">❮</button>
+                    <button class="nav-btn next" onclick="scrollGrid(1)">❯</button>
                 </div>
             </div>
-        </div>
 
-        <div class="carousel-full-width">
-            <div class="carousel-wrapper">
-                <div class="testimonial-grid carousel-mode">
-                    <div class="tm-card tm-bg-pink">
-                        <img src="asets/unduhan.jpg" alt="Member 1">
-                        <div class="card-content">
-                            <p>"Framify has completely transformed my design workflow!"</p>
-                            <div class="footer-card">
-                                <span class="logo">ATLASSIAN</span>
-                                <div class="info"><strong>John Davis</strong><span>Sales Director</span></div>
-                            </div>
+            <div class="podcaster-cards-wrapper">
+                <div class="podcaster-grid">
+                    <div class="card-anggota orange active" onclick="pilihKartu(this)">
+                        <div class="info">
+                            <h2>Mr. Mark <br> baba</h2>
+                            <span class="streams">1.6 million streams</span>
                         </div>
+                        <div class="card-decoration">
+                            <img src="/asets/Group 1.png" alt="decoration">
+                        </div>
+
+                        <img src="/asets/mamber1.png"
+                            alt="Mark">
                     </div>
 
-                    <div class="tm-card tm-bg-brown">
-                        <img src="asets/unduhan.jpg" alt="Member 2">
-                        <div class="card-content">
-                            <p>"The best investment we've made this year."</p>
-                            <div class="footer-card">
-                                <span class="logo">SLACK</span>
-                                <div class="info"><strong>Sarah J.</strong><span>Manager</span></div>
-                            </div>
+                    <div class="card-anggota card-teal" onclick="pilihKartu(this)">
+                        <div class="info">
+                            <h2>Nadia <br> Lestary</h2>
+                            <span class="streams">1.2 million streams</span>
                         </div>
+                        <img src="asets/member2.png"
+                            alt="Nadia">
                     </div>
 
-                    <div class="tm-card tm-bg-green">
-                        <img src="asets/unduhan.jpg" alt="Member 3">
-                        <div class="card-content">
-                            <p>"Incredible support and platform!"</p>
-                            <div class="footer-card">
-                                <span class="logo">SHOPIFY</span>
-                                <div class="info"><strong>Mike Chen</strong><span>Founder</span></div>
-                            </div>
+                    <div class="card-anggota green" onclick="pilihKartu(this)">
+                        <div class="info">
+                            <h2>Evan <br> Caster Lee</h2>
+                            <span class="streams">900k streams</span>
                         </div>
+                        <img src="/asets/member3.png"
+                            alt="Evan">
                     </div>
 
-                    <div class="tm-card tm-bg-green">
-                        <img src="asets/unduhan.jpg" alt="Member 3">
-                        <div class="card-content">
-                            <p>"Incredible support and platform!"</p>
-                            <div class="footer-card">
-                                <span class="logo">SHOPIFY</span>
-                                <div class="info"><strong>Mike Chen</strong><span>Founder</span></div>
-                            </div>
+                    <div class="card-anggota yellow" onclick="pilihKartu(this)">
+                        <div class="info">
+                            <h2>Stefy <br> Catlyna</h2>
+                            <span class="streams">1.1 million streams</span>
                         </div>
+                        <img src="/asets/member4.png"
+                            alt="Stefy">
                     </div>
 
-                    <div class="tm-card tm-bg-green">
-                        <img src="asets/unduhan.jpg" alt="Member 3">
-                        <div class="card-content">
-                            <p>"Incredible support and platform!"</p>
-                            <div class="footer-card">
-                                <span class="logo">SHOPIFY</span>
-                                <div class="info"><strong>Mike Chen</strong><span>Founder</span></div>
-                            </div>
+                    <div class="card-anggota cyan" onclick="pilihKartu(this)">
+                        <div class="info">
+                            <h2>Stefy <br> Catlyna</h2>
+                            <span class="streams">1.1 million streams</span>
                         </div>
+                        <img src="asets/member5.png"
+                            alt="Stefy">
+                    </div>
+
+                    <div class="card-anggota lime" onclick="pilihKartu(this)">
+                        <div class="info">
+                            <h2>Stefy <br> Catlyna</h2>
+                            <span class="streams">1.1 million streams</span>
+                        </div>
+                        <img src="asets/member6.png"
+                            alt="Stefy">
+                    </div>
+
+                    <div class="card-anggota lavender" onclick="pilihKartu(this)">
+                        <div class="info">
+                            <h2>Stefy <br> Catlyna</h2>
+                            <span class="streams">1.1 million streams</span>
+                        </div>
+                        <img src="asets/member7.png"
+                            alt="Stefy">
+                    </div>
+
+                    <div class="card-anggota dark-g" onclick="pilihKartu(this)">
+                        <div class="info">
+                            <h2>Stefy <br> Catlyna</h2>
+                            <span class="streams">1.1 million streams</span>
+                        </div>
+                        <img src="asets/member8.png"
+                            alt="Stefy">
                     </div>
                 </div>
             </div>

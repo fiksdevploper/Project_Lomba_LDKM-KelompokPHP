@@ -54,6 +54,16 @@ setInterval(() => {
 // end
 
 // hitung jumlah data
+const grid = document.querySelector('#kelompok-php .podcaster-grid');
+
+grid.addEventListener('scroll', () => {
+    if (grid.scrollLeft > 5) {
+        grid.classList.add('is-scrolled');
+    } else {
+        grid.classList.remove('is-scrolled');
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const observerOptions = {
         threshold: 0.5 // Animasi mulai saat 50% kartu terlihat
@@ -144,16 +154,39 @@ flowObserver.observe(flowSection);
 // anime js end
 
 // team carousel
-const carousel = document.querySelector('.carousel-mode');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
+function scrollGrid(direction) {
+    // Mengambil container grid berdasarkan class di dalam section kelompok-php
+    const grid = document.querySelector('#kelompok-php .podcaster-grid');
+    
+    // Tentukan jarak scroll (lebar satu kartu + gap)
+    // 300px adalah estimasi, bisa disesuaikan dengan lebar card Anda
+    const scrollAmount = 300; 
 
-nextBtn.addEventListener('click', () => {
-    // Geser ke kanan sejauh lebar satu kartu + gap
-    carousel.scrollLeft += 374; 
-});
+    grid.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+}
 
-prevBtn.addEventListener('click', () => {
-    // Geser ke kiri
-    carousel.scrollLeft -= 374;
-});
+// Fungsi untuk memilih kartu (aktif/melebar)
+function pilihKartu(card) {
+    const grid = document.querySelector('#kelompok-php .podcaster-grid');
+    const cards = grid.querySelectorAll('.card-anggota');
+
+    // 1. Reset state
+    cards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    // 2. Pastikan scroll tidak melewati batas setelah card melebar
+    requestAnimationFrame(() => {
+        const maxScrollLeft = grid.scrollWidth - grid.clientWidth;
+        const currentScrollLeft = grid.scrollLeft;
+
+        if (currentScrollLeft > maxScrollLeft) {
+            grid.scrollTo({
+                left: maxScrollLeft,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
