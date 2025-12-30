@@ -35,18 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // kata rotasi
 const words = ["personal", "efektif", "menyenangkan"];
-const colors = ["#5CCAA0", "#ECEE8C", "#B79AF2"]; // warna masing-masing kata
+const colors = ["#3D9CFB", "#ECEE8C", "#B79AF2"]; 
 let index = 0;
 const wordElement = document.getElementById("word-rotate");
 setInterval(() => {
-    // fade out
     wordElement.classList.add("fade-out");
     wordElement.classList.remove("fade-in");
 
     setTimeout(() => {
         index = (index + 1) % words.length;
         wordElement.textContent = words[index];
-        wordElement.style.backgroundColor = colors[index]; // ganti warna sesuai kata
+        wordElement.style.backgroundColor = colors[index];
         wordElement.classList.remove("fade-out");
         wordElement.classList.add("fade-in");
     }, 400);
@@ -55,7 +54,6 @@ setInterval(() => {
 
 // hitung jumlah data
 const grid = document.querySelector('#kelompok-php .podcaster-grid');
-
 grid.addEventListener('scroll', () => {
     if (grid.scrollLeft > 5) {
         grid.classList.add('is-scrolled');
@@ -66,7 +64,7 @@ grid.addEventListener('scroll', () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const observerOptions = {
-        threshold: 0.5 // Animasi mulai saat 50% kartu terlihat
+        threshold: 0.5
     };
 
     const counterObserver = new IntersectionObserver((entries, observer) => {
@@ -74,12 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = +counter.getAttribute('data-target');
-                const duration = 2000; // Total durasi animasi (2 detik)
+                const duration = 2000;
                 const startTime = performance.now();
                 const updateNumber = (currentTime) => {
                     const elapsedTime = currentTime - startTime;
                     const progress = Math.min(elapsedTime / duration, 1);
-                    // Menggunakan easing 'outQuad' agar melambat di akhir (lebih halus)
                     const currentCount = Math.floor(progress * target);
                     counter.innerText = currentCount;
                     if (progress < 1) {
@@ -89,11 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 };
                 requestAnimationFrame(updateNumber);
-                observer.unobserve(counter); // Berhenti memantau setelah animasi selesai
+                observer.unobserve(counter);
             }
         });
     }, observerOptions);
-    // Daftarkan semua elemen .counter ke observer
     document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 });
 // end
@@ -112,7 +108,6 @@ items.forEach(item => {
 // anime js
 const flowSection = document.querySelector('#how-it-works');
 let flowPlayed = false;
-
 const flowObserver = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !flowPlayed) {
         flowPlayed = true;
@@ -155,11 +150,7 @@ flowObserver.observe(flowSection);
 
 // team carousel
 function scrollGrid(direction) {
-    // Mengambil container grid berdasarkan class di dalam section kelompok-php
     const grid = document.querySelector('#kelompok-php .podcaster-grid');
-    
-    // Tentukan jarak scroll (lebar satu kartu + gap)
-    // 300px adalah estimasi, bisa disesuaikan dengan lebar card Anda
     const scrollAmount = 300; 
 
     grid.scrollBy({
