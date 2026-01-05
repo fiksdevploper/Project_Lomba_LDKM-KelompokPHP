@@ -21,7 +21,6 @@ html {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 14px;
-    /* konsisten kanan kiri */
 }
 
 /* navbar */
@@ -564,7 +563,6 @@ p {
         font-size: 1.6rem;
     }
 }
-
 /* masalah pendidikan end */
 
 /* solusi inovasi ai */
@@ -701,7 +699,6 @@ p {
         max-width: 320px;
     }
 }
-
 /* end */
 
 /* temukan gaya belajar kamu */
@@ -1034,7 +1031,6 @@ p {
 .at-illustration img {
     height: 100%;
     object-fit: contain;
-    /* Memberikan sedikit efek filter agar warna masuk ke tema */
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.05));
 }
 
@@ -1073,7 +1069,6 @@ p {
     height: 2px;
     background: #e0e0e0;
     margin-top: 170px;
-    /* Menyesuaikan posisi panah karena ada gambar */
     position: relative;
 }
 
