@@ -70,8 +70,8 @@
             </h1>
 
             <p>Belajar sesuai gaya kamu, dibantu AI yang paham caramu berpikir.</p>
-            <button id="cta-button" class="btn-power" onclick="window.location.href='#alur-test'">
-                Lihat Panduan Test
+            <button id="cta-button" class="btn-power">
+                Mulai Test Sekarang
             </button>
         </div>
     </section>
@@ -113,7 +113,7 @@
                     <div class="card-footer">
                         <div class="stat">
                             <span class="stat-label">Peringkat PISA</span>
-                            <div class="value"><span class="counter" data-target="359"></span></div>
+                            <div class="value"><span class="counter" data-target="70">0</span>/81</div>
                         </div>
                         <div class="arrow-btn">→</div>
                     </div>
@@ -187,8 +187,10 @@
                             </button>
                             <div class="accordion-content">
                                 <p>
-                                    AI menganalisis kemampuan, kecepatan, dan pola belajar anak
-                                    untuk menyusun materi yang paling sesuai secara real-time.
+                                    AI menganalisis kemampuan, kecepatan, dan pola belajar anak untuk menyusun materi
+                                    yang paling sesuai secara real-time. Dengan pendekatan ini, setiap anak mendapatkan
+                                    pengalaman belajar yang benar-benar personal, di mana tingkat kesulitan, gaya
+                                    penyampaian, dan jenis aktivitas disesuaikan dengan kebutuhan unik mereka.
                                 </p>
                             </div>
                         </div>
@@ -212,8 +214,9 @@
                             </button>
                             <div class="accordion-content">
                                 <p>
-                                    Otomatisasi evaluasi dan rekomendasi materi pembelajaran
-                                    agar guru bisa fokus mengajar.
+                                    Otomatisasi evaluasi dan rekomendasi materi pembelajaran agar guru bisa fokus
+                                    mengajar. Guru tidak lagi terbebani tugas administratif, sementara siswa memperoleh
+                                    materi yang sesuai kebutuhan, sehingga interaksi kelas menjadi lebih bermakna.
                                 </p>
                             </div>
                         </div>
@@ -233,8 +236,10 @@
                             </button>
                             <div class="accordion-content">
                                 <p>
-                                    Laporan perkembangan anak yang ringkas,
-                                    visual, dan mudah dipahami.
+                                    Otomatisasi evaluasi dan rekomendasi materi pembelajaran agar guru bisa fokus
+                                    mengajar. Laporan perkembangan anak yang ringkas, visual, dan mudah dipahami
+                                    memudahkan guru serta orang tua dalam melihat pencapaian, mendeteksi kelemahan, dan
+                                    mendukung perkembangan anak secara optimal.
                                 </p>
                             </div>
                         </div>
@@ -370,10 +375,9 @@
                         Kamu lebih paham lewat gambar, diagram, dan warna.
                         Video dan ilustrasi bikin materi langsung “klik”.
                     </p>
-                    <button class="st-button-play">
+                    <button id="playVideoButton" class="st-button-play">
                         <span class="st-circle-play">▶</span> Lihat Contoh Video
                     </button>
-
                 </div>
 
                 <!-- card 2 -->
@@ -460,10 +464,9 @@
                         Kamu lebih cepat paham saat mendengar penjelasan.
                         Diskusi, audio, dan penjelasan lisan bikin materi lebih hidup.
                     </p>
-                    <button class="st-button-play">
+                    <button class="st-button-play" id="btnAudioSimple">
                         <span class="st-circle-play">▶</span> Dengarkan Contoh
                     </button>
-
                 </div>
 
                 <!-- card 3 -->
@@ -538,7 +541,8 @@
                         Kamu lebih paham kalau langsung nyoba.
                         Simulasi, eksperimen, dan aktivitas bikin konsep nempel.
                     </p>
-                    <button class="st-button-play">
+
+                    <button class="st-button-play" id="startQuiz"   >
                         <span class="st-circle-play">▶</span> Mulai Praktik
                     </button>
                 </div>
@@ -737,8 +741,8 @@
                             <h2>Nasywa Nayla <br> Azzahra</h2>
                             <span class="streams">
                                 <span class="streams">
-                                    <a href="https://www.instagram.com/nays.fluffblushalure_?igsh=MTNkMXY5N2o4YzR2cQ==" target="_blank"
-                                        rel="noopener noreferrer">
+                                    <a href="https://www.instagram.com/nays.fluffblushalure_?igsh=MTNkMXY5N2o4YzR2cQ=="
+                                        target="_blank" rel="noopener noreferrer">
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                     <a href="https://github.com/nasywanayla119-glitch" target="_blank"
@@ -796,8 +800,8 @@
                         <div class="info">
                             <h2>Lia Nur Alawiah <br> Wahdah</h2>
                             <span class="streams">
-                                <a href="https://www.instagram.com/lianuralawiah_?utm_source=qr&igsh=MzZ1NGkwNjRmMWFy" target="_blank"
-                                    rel="noopener noreferrer">
+                                <a href="https://www.instagram.com/lianuralawiah_?utm_source=qr&igsh=MzZ1NGkwNjRmMWFy"
+                                    target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                                 <a href="https://github.com/yayaya270307" target="_blank" rel="noopener noreferrer">
@@ -819,7 +823,8 @@
                                     rel="noopener noreferrer">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="https://github.com/anasdic928-glitch" target="_blank" rel="noopener noreferrer">
+                                <a href="https://github.com/anasdic928-glitch" target="_blank"
+                                    rel="noopener noreferrer">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </span>
@@ -857,7 +862,8 @@
                                     rel="noopener noreferrer">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="https://github.com/saetamafahri-glitch" target="_blank" rel="noopener noreferrer">
+                                <a href="https://github.com/saetamafahri-glitch" target="_blank"
+                                    rel="noopener noreferrer">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </span>
@@ -921,7 +927,8 @@
 
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p class="copyright">&copy; 2025 NEURAL ADACTIVE LEARNING ACADEMIC RESOURCE • ALL RIGHTS RESERVED</p>
+                    <p class="copyright">&copy; 2025 NEURAL ADACTIVE LEARNING ACADEMIC RESOURCE • ALL RIGHTS RESERVED
+                    </p>
 
                     <div class="footer-socials">
                         <a href="#" class="social-link">Instagram</a>
@@ -938,6 +945,7 @@
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- js area end -->
 </body>
 

@@ -155,7 +155,7 @@ html {
     min-width: 180px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    padding: 10px 0;
+    padding: 12px 0;
     list-style: none;
     z-index: 999;
 }
@@ -200,6 +200,13 @@ html {
 
 /* resvonsive navbar */
 @media (max-width: 1000px) {
+    .nav-container {
+        padding: 12px 16px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+
     .hamburger {
         display: flex;
     }
@@ -236,6 +243,7 @@ html {
         font-size: 1.2rem;
     }
 }
+
 /* navbar end */
 
 /* start herro  */
@@ -258,7 +266,7 @@ h1 {
     font-weight: 600;
     font-size: 4rem;
     line-height: 1.1;
-    margin-bottom: 20px;
+    margin-bottom: 0 20px;
 }
 
 h1 span {
@@ -347,6 +355,7 @@ p {
         padding: 80px 20px;
     }
 }
+
 /* herro end */
 
 /* start masalah pendidikan */
@@ -563,6 +572,7 @@ p {
         font-size: 1.6rem;
     }
 }
+
 /* masalah pendidikan end */
 
 /* solusi inovasi ai */
@@ -699,6 +709,7 @@ p {
         max-width: 320px;
     }
 }
+
 /* end */
 
 /* temukan gaya belajar kamu */
@@ -843,7 +854,77 @@ p {
     align-items: center;
     font-size: 10px;
 }
+
 /* end */
+
+/* sweet alert */
+
+/* Custom Class untuk SweetAlert */
+.quiz-popup {
+    border-radius: 20px !important;
+    padding: 2em !important;
+}
+
+.quiz-title {
+    color: #2d3436;
+    font-weight: 800;
+}
+
+/* Mempercantik tampilan opsi radio */
+.swal2-radio {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    align-items: start !important;
+    text-align: left;
+}
+
+.swal2-radio label {
+    background: #f1f2f6;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 0 !important;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.swal2-radio label:hover {
+    background: #e0e0e0;
+}
+
+.swal2-radio input:checked+span {
+    font-weight: bold;
+    color: #3D9CFB;
+}
+
+/* allet test */
+.swal2-container {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Mempercantik pilihan jawaban */
+.swal2-radio {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px;
+    align-items: stretch !important;
+}
+
+.swal2-radio label {
+    font-size: 14px !important;
+    background: #f8f9fa;
+    padding: 12px 15px !important;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: 0.2s;
+}
+
+.swal2-radio label:hover {
+    background: #f0f7ff;
+    border-color: #3D9CFB;
+}
+
+/* end sweet alert */
 
 /* cara kerja ai model flow */
 .how-it-works {
@@ -983,6 +1064,7 @@ p {
         font-size: 3.5rem;
     }
 }
+
 /* end */
 
 /* flow test belajar */
@@ -1113,6 +1195,7 @@ p {
         font-size: 3.5rem;
     }
 }
+
 /* flow test belajar end */
 
 /* achivement */
@@ -1223,6 +1306,7 @@ p {
         width: 70px;
     }
 }
+
 /* achivement end */
 
 /* team anggota */
@@ -1479,6 +1563,7 @@ p {
         flex: 0 0 400px;
     }
 }
+
 /* team end */
 
 /* footer */
@@ -1621,4 +1706,5 @@ p {
         letter-spacing: 4px;
     }
 }
+
 /* end */

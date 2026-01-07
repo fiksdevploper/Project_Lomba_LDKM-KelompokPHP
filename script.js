@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // kata rotasi
 const words = ["personal", "efektif", "menyenangkan"];
-const colors = ["#3D9CFB","#5CCAA0", "#B79AF2", "#ECEE8C"]; 
+const colors = ["#3D9CFB", "#5CCAA0", "#B79AF2", "#ECEE8C"];
 let index = 0;
 const wordElement = document.getElementById("word-rotate");
 setInterval(() => {
@@ -151,7 +151,7 @@ flowObserver.observe(flowSection);
 // team carousel
 function scrollGrid(direction) {
     const grid = document.querySelector('#kelompok-php .podcaster-grid');
-    const scrollAmount = 300; 
+    const scrollAmount = 300;
 
     grid.scrollBy({
         left: direction * scrollAmount,
@@ -164,11 +164,9 @@ function pilihKartu(card) {
     const grid = document.querySelector('#kelompok-php .podcaster-grid');
     const cards = grid.querySelectorAll('.card-anggota');
 
-    // 1. Reset state
     cards.forEach(c => c.classList.remove('active'));
     card.classList.add('active');
 
-    // 2. Pastikan scroll tidak melewati batas setelah card melebar
     requestAnimationFrame(() => {
         const maxScrollLeft = grid.scrollWidth - grid.clientWidth;
         const currentScrollLeft = grid.scrollLeft;
@@ -181,3 +179,181 @@ function pilihKartu(card) {
         }
     });
 }
+
+// swrrt alert
+const kuisGayaBelajar = [
+    {
+        tanya: "Saat menghafal sesuatu, apa yang biasanya kamu lakukan?",
+        opsi: {
+            V: "Membayangkan gambar atau tulisan dalam pikiran",
+            A: "Mengucapkan kata-kata keras-keras",
+            K: "Menulisnya berkali-kali di kertas"
+        }
+    },
+    {
+        tanya: "Apa yang paling mengganggumu saat sedang konsentrasi?",
+        opsi: {
+            V: "Suasana yang berantakan atau kotor",
+            A: "Suara bising atau orang mengobrol",
+            K: "Harus duduk diam terlalu lama"
+        }
+    },
+    {
+        tanya: "Jika harus merakit mainan baru, kamu lebih suka...",
+        opsi: {
+            V: "Melihat gambar petunjuknya dulu",
+            A: "Mendengarkan penjelasan orang lain",
+            K: "Langsung mencoba memasang bagian-bagiannya"
+        }
+    }
+];
+
+document.getElementById('cta-button').addEventListener('click', async function() {
+    let poin = { V: 0, A: 0, K: 0 };
+
+    for (let i = 0; i < kuisGayaBelajar.length; i++) {
+        const { value: answer } = await Swal.fire({
+            title: `Pertanyaan ${i + 1}`,
+            text: kuisGayaBelajar[i].tanya,
+            input: 'radio',
+            inputOptions: kuisGayaBelajar[i].opsi,
+            
+            // PENGATURAN TOMBOL DI DALAM SWEETALERT
+            confirmButtonText: 'Lanjut',
+            confirmButtonColor: '#3D9CFB', // Biru yang Anda minta
+            
+            allowOutsideClick: false,
+            inputValidator: (value) => {
+                if (!value) return 'Pilih salah satu jawaban!';
+            },
+            showClass: {
+                popup: 'animate__animated animate__fadeInUp animate__faster'
+            }
+        });
+
+        if (answer) poin[answer]++;
+    }
+
+    // Tentukan hasil tertinggi
+    let hasil = Object.keys(poin).reduce((a, b) => poin[a] > poin[b] ? a : b);
+    
+    const deskripsi = {
+        V: { judul: "Visual", teks: "Kamu lebih mudah belajar dengan melihat gambar atau diagram.", ikon: "👁️" },
+        A: { judul: "Auditori", teks: "Kamu lebih mudah belajar melalui suara dan diskusi.", ikon: "🎧" },
+        K: { judul: "Kinestetik", teks: "Kamu belajar lebih baik melalui praktik dan gerakan.", ikon: "🏃" }
+    };
+
+    // Pop-up Hasil Akhir
+    Swal.fire({
+        title: `Hasil: ${deskripsi[hasil].judul} ${deskripsi[hasil].ikon}`,
+        text: deskripsi[hasil].teks,
+        icon: 'success',
+        confirmButtonText: 'Selesai',
+        confirmButtonColor: '#3D9CFB', // Biru yang sama untuk konsistensi
+        backdrop: `rgba(61, 156, 251, 0.2)`
+    });
+});
+
+document.getElementById('playVideoButton').addEventListener('click', function () {
+    Swal.fire({
+        title: 'Animation vs. Coding',
+        html: `
+            <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px;">
+                <iframe 
+                    src="https://www.youtube.com/embed/EFmxPMdBqmU?autoplay=1" 
+                    style="position:absolute; top:0; left:0; width:100%; height:100%;" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        `,
+        width: 900,
+        padding: '1em',
+        background: '#fff',
+        showCloseButton: true,
+        showConfirmButton: false,
+        focusConfirm: false,
+    });
+});
+
+document.getElementById('btnAudioSimple').addEventListener('click', function () {
+    Swal.fire({
+        title: 'Gaya Belajar Audio',
+        html: `
+                    <p style="font-size: 14px; color: #636e72; margin-bottom: 25px;">
+                        Klik tombol putar untuk mendengarkan materi.
+                    </p>
+                    <audio controls autoplay style="width: 100%;">
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                        Browser Anda tidak mendukung audio.
+                    </audio>
+                `,
+        showConfirmButton: false,
+        showCloseButton: true,
+        width: '380px',
+        padding: '2.5em',
+        background: '#ffffff',
+        borderRadius: '20px'
+    });
+});
+
+const kuisData = [
+    {
+        tanya: "Jika gelas = 'Kosong', lalu diberi instruksi gelas = 'Kopi', apa isi gelas sekarang?",
+        opsi: ["Kosong", "Kopi", "Gelas Kopi"],
+        jawaban: 1 
+    },
+    {
+        tanya: "Manakah urutan algoritma yang benar?",
+        opsi: ["Minum > Tuang air", "Tuang air > Minum", "Aduk > Tuang air"],
+        jawaban: 1
+    },
+    {
+        tanya: "Jika x = 5 dan y = 10, apakah (x > y)?",
+        opsi: ["Ya", "Tidak", "Mungkin"],
+        jawaban: 1
+    }
+];
+
+document.getElementById('startQuiz').addEventListener('click', async function() {
+    let skor = 0;
+
+    for (let i = 0; i < kuisData.length; i++) {
+        const { value: pilihan } = await Swal.fire({
+            title: `Soal ${i + 1}/${kuisData.length}`,
+            text: kuisData[i].tanya,
+            input: 'radio',
+            inputOptions: kuisData[i].opsi.reduce((obj, item, index) => {
+                obj[index] = item;
+                return obj;
+            }, {}),
+            inputValidator: (value) => {
+                if (!value) return 'Pilih salah satu jawaban!';
+            },
+            showCancelButton: true,
+            cancelButtonText: 'Berhenti',
+            confirmButtonText: 'Lanjut',
+            allowOutsideClick: false
+        });
+
+        if (pilihan === undefined) return; // Jika user klik cancel
+
+        if (parseInt(pilihan) === kuisData[i].jawaban) {
+            skor++;
+        }
+    }
+
+    const nilaiAkhir = Math.round((skor / kuisData.length) * 100);
+    Swal.fire({
+        title: 'Hasil Praktik Kamu',
+        html: `
+            <div style="font-size: 20px;">
+                Nilai: <b>${nilaiAkhir}</b> <br>
+                Benar: ${skor} dari ${kuisData.length} soal
+            </div>
+        `,
+        icon: nilaiAkhir >= 70 ? 'success' : 'warning',
+        confirmButtonText: 'Selesai'
+    });
+});
