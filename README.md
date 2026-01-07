@@ -63,4 +63,4 @@ NALAR.AI membantu siswa menemukan gaya belajar unik mereka:
 ## 📦 Instalasi & Penggunaan
 ```bash
 # Clone repository
-git clone https://github.com/username/nalar-ai.git
+https://github.com/fiksdevploper/Project_Lomba_LDKM-KelompokPHP.git
