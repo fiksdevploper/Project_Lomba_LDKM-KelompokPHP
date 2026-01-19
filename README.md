@@ -3,7 +3,7 @@
 
 NALAR.AI adalah platform pembelajaran berbasis AI yang dirancang untuk menjawab tantangan nyata pendidikan di Indonesia. Fokus kami adalah mencetak generasi emas 2045 dengan pendekatan personalisasi, otomatisasi, dan insight yang relevan bagi siswa, guru, dan orang tua.
 
-🌐 **Akses Web**: [https://nalar-three.vercel.app/](https://nalar-three.vercel.app/)
+🌐 **Akses Web**: [https://nalar-three.vercel.app/](https://nalar.netlify.app/)
 
 ---
 
